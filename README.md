@@ -13,7 +13,7 @@ avoir un fichier requirements.txt
 
 Au vu du temps imparti, les règles du poker seront ignorées. Voici les règles qui doivent être prises en compte au sein de votre application. Plus vous avancez mieux c'est mais privilégiez la qualité à la quantité.
 
-[C:\Users\florian.giangrande\Documents\EPSI\python\PokerPythonProject\Image\image_for_readme.png]
+[https://github.com/encizz/PokerPythonProject/blob/main/Image/image_for_readme.png]
 
 Obligatoire :
 
