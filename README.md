@@ -24,5 +24,5 @@ Au vu du temps imparti, les règles du poker seront ignorées. Voici les règles
     - Combinaisons poker
     - Respect des règles du texas holdem
     - un joueur commence avec 10 €
-    - La petite bind est définie à 1€, la grosse blind à 2€.
+    - La petite blind est définie à 1€, la grosse blind à 2€.
     - Les IA acceptent automatiquement les enchères.
