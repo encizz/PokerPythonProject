@@ -14,7 +14,7 @@ Réaliser application permettant de simuler les bases d'un jeu de poker.
     - Il doit être possible de saisir un seed (graine), ce qui génèrera la même répartition des cartes.
 
 ## Règles du poker choisient
-Au vu du temps imparti, les règles du poker seront ignorées. Voici les règles qui doivent être prises en compte au sein de votre application. Plus vous avancez mieux c'est mais privilégiez la qualité à la quantité.
+Les règles du poker seront ignorées. Voici les règles prises en compte au sein de l'application.
 
 ![alt text](https://github.com/encizz/PokerPythonProject/blob/main/Image/image_for_readme.png)
 
