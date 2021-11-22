@@ -18,7 +18,7 @@ Les règles du poker seront ignorées. Voici les règles prises en compte au sei
 
 ![alt text](https://github.com/encizz/PokerPythonProject/blob/main/Image/image_for_readme.png)
 
-## Objectifs bonnus
+## Objectifs bonus
 
     - Comparaison des combinaisons (paires)
     - Combinaisons poker
@@ -26,3 +26,7 @@ Les règles du poker seront ignorées. Voici les règles prises en compte au sei
     - un joueur commence avec 10 €
     - La petite blind est définie à 1€, la grosse blind à 2€.
     - Les IA acceptent automatiquement les enchères.
+
+## Auteurs 
+
+Floriant, Théo, Sterenn
