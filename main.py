@@ -87,16 +87,16 @@ def main():
         #init player
         def __init__(self, name=None):
             self.name = name 
-            self.chips = 0              #value of restant $ per player
+            self.chips = 0                       #value of restant $ per player
             self.stake = 0
             self.stake_gap = 0
-            self.cards = []             #list of card of one player
-            self.score = []             #score of the hand of one player
-            self.fold = False           #realizable fold action
-            self.ready = False          #check
-            self.all_in = False         #realizable all in action
-            self.list_of_special_attributes = []
-            self.win = False            # True == player win
+            self.cards = []                      #list of card of one player
+            self.score = []                      #score of the hand of one player
+            self.fold = False                    #realizable fold action
+            self.ready = False                   #check
+            self.all_in = False                  #realizable all in action
+            self.list_of_special_attributes = [] #special attributes are dealer, blind and first player
+            self.win = False                     # True == player win
         
 
         def __repr__(self):
@@ -559,6 +559,7 @@ def main():
                 if response not in self.possible_responses:
                     print("Invalid response")
                     continue
+                #if partial all in print all in
                 if response == "all_in_partial":
                     player.stake += player.chips
                     self.pot += player.chips
@@ -567,6 +568,7 @@ def main():
                     print(f"{player.name} is all-in!")
                     player.all_in = True
                     return True
+                # if all in exact print all in
                 if response == "all_in_exact":
                     print(f"{player.name} is all-in!")
                     player.all_in = True
@@ -575,6 +577,7 @@ def main():
                     player.chips = 0
                     player.stake_gap = 0
                     return True
+                # if all fold print the winner
                 if response == "fold":
                     player.fold = True
                     self.fold_list.append(player)
