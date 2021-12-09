@@ -39,7 +39,7 @@ Les règles du poker seront ignorées. Voici les règles prises en compte au sei
     - C'est parti !
 
 ## Notes liées au travail du groupe   
-Les parties blocantes  :
+    Les parties blocantes  :
     - l'intégration des "seeds" dans un code déja existant
     - la création graphique via TK (installation du PIL, génération des images rattachées au cartes)
     - La fusion des versions de chacuns dans un même Git
