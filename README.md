@@ -34,7 +34,7 @@ Les règles du poker seront ignorées. Voici les règles prises en compte au sei
 
 ## Developpement
     - Pour installer le jeu, clonner ce repository dans une nouvelle branche locale :
- ![alt text](https://github.com/encizz/PokerPythonProject/blob/main/Image/git.jpg)
+        git clone : https://github.com/encizz/PokerPythonProject
     - lancer le fichier "main"
     - C'est parti !
 
@@ -44,7 +44,7 @@ Les parties blocantes  :
     - la création graphique via TK (installation du PIL, génération des images rattachées au cartes)
     - La fusion des versions de chacuns dans un même Git
 
-Montée en compétences :rocket:
+## Montée en compétences :rocket:
     - Intégrer une interface graphique avec Python (language imposé sur cet exercice)
     - Refactoriser un code existant et y ajouter une documentation afin d'en faciliter sa compréhension
     - Découverte d'un language, de sa synthaxe
