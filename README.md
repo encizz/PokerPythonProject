@@ -20,7 +20,7 @@ Réaliser application permettant de simuler les bases d'un jeu de poker.
 ## Règles du poker choisient
     Les règles du poker seront ignorées. Voici les règles prises en compte au sein de l'application.
 
-![alt text](https://github.com/encizz/PokerPythonProject/blob/main/Image/image_for_readme.png)
+![alt text](https://github.com/encizz/PokerPythonProject/blob/main/image/image_for_readme.png)
 
 ## Objectifs bonus
 
@@ -34,7 +34,7 @@ Réaliser application permettant de simuler les bases d'un jeu de poker.
 ## Developpement
 
     - Pour installer le jeu, clonner ce repository dans une nouvelle branche locale :
-    ![alt text](https://github.com/encizz/PokerPythonProject/blob/main/Image/git.jpg)
+    ![alt text](https://github.com/encizz/PokerPythonProject/blob/main/image/git.jpg)
     - lancer le fichier "texas_holdem_poker.py"
     - C'est parti !
 
@@ -54,4 +54,4 @@ Réaliser application permettant de simuler les bases d'un jeu de poker.
 
 
 ## Auteurs 
-Floriant, Théo, Sterenn
+Florian, Théo, Sterenn
