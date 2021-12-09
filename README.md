@@ -20,7 +20,7 @@ Réaliser application permettant de simuler les bases d'un jeu de poker.
 ## Règles du poker choisient
     Les règles du poker seront ignorées. Voici les règles prises en compte au sein de l'application.
 
-![alt text](https://github.com/encizz/PokerPythonProject/image_for_readme.png)
+![alt text](https://github.com/encizz/PokerPythonProject/image/image_for_readme.png)
 
 ## Objectifs bonus
 
