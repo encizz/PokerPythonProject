@@ -58,6 +58,8 @@ def main():
                 return "[CARD]"
 
     class StandardDeck(list):
+
+        # Init the deck of cards
         def __init__(self):
             super().__init__()
             suits = list(range(4))
@@ -66,62 +68,70 @@ def main():
 
         def __repr__(self):
             return f"Standard deck of cards\n{len(self)} cards remaining"
-
+        
+        # shuffle the deck
         def shuffle(self):
             random.shuffle(self)
             print("\n\n--deck shuffled--")
 
+        # append first time of a deck
         def deal(self, location, times=1):
             for i in range(times):
                 location.cards.append(self.pop(0))
-
+        
+        # burn the first card
         def burn(self):
             self.pop(0)
 
     class Player(object):
+        #init player
         def __init__(self, name=None):
-            self.name = name
-            self.chips = 0
+            self.name = name 
+            self.chips = 0              #value of restant $ per player
             self.stake = 0
             self.stake_gap = 0
-            self.cards = []
-            self.score = []
-            self.fold = False
-            self.ready = False
-            self.all_in = False
+            self.cards = []             #list of card of one player
+            self.score = []             #score of the hand of one player
+            self.fold = False           #realizable fold action
+            self.ready = False          #check
+            self.all_in = False         #realizable all in action
             self.list_of_special_attributes = []
-            self.win = False
+            self.win = False            # True == player win
+        
 
         def __repr__(self):
             name = self.name
             return name
 
     class Game(object):
+        #init game
         def __init__(self):
             self.need_raise_info = False
-            self.game_over = False
-            self.acting_player = Player()
-            self.possible_responses = []
-            self.round_counter = 0
-            self.cards = []
-            self.pot = 0
-            self.pot_dict = {}
-            self.pot_in_play = 0
-            self.list_of_player_names = []
-            self.dealer = Player()
-            self.small_blind = Player()
-            self.big_blind = Player()
-            self.first_actor = Player()
-            self.winners = []
-            self.deck = StandardDeck()
-            self.list_of_scores_from_eligible_winners = []
-            self.setup = ask_app("Start?")
+            self.game_over = False          # end of the game
+            self.acting_player = Player()   #wait action of player
+            self.possible_responses = []    #possible action of player
+            self.round_counter = 0          #count the number of round
+            self.cards = []                 #init the deck  shuffled for this game
+            self.pot = 0                    #total of $ in the pot
+            self.pot_dict = {}              
+            self.pot_in_play = 0            
+            self.list_of_player_names = []  #list the name of all players
+            self.dealer = Player()          #attibute dealer for a player
+            self.small_blind = Player()     #attibute small blind for a player
+            self.big_blind = Player()       #attibute big blind for a player
+            self.first_actor = Player()     #attibute first player
+            self.winners = []               #who is the winner
+            self.deck = StandardDeck()      #deck standard
+            self.list_of_scores_from_eligible_winners = [] 
+            self.setup = ask_app("Start?")  #start call 
             while True:
                 try:
+                    # count the number of players
                     self.number_of_players = len(self.setup["players"])
                     break
                 except ValueError:
                     print("Invalid response")
+            #look if is a valid number of player
             if 1 < self.number_of_players < 11:
                 pass
             else:
@@ -130,6 +140,7 @@ def main():
             self.list_of_players = [Player(name) for name in self.setup["players"] if name != ""]
             while True:
                 try:
+                    # init the first value of $ at the begining
                     self.starting_chips = int(self.setup["chips"][0])
                     if self.starting_chips > 0:
                         break
@@ -138,11 +149,14 @@ def main():
                     print("Invalid response")
                     continue
             for player in self.list_of_players:
+                # attribute chips for all users
                 player.chips = self.starting_chips
             self.ready_list = []
             while True:
                 try:
+                    # look if small blind is defined
                     self.small_blind_amount = int(self.setup["chips"][1])
+                    # look if small blind is lower than chips of users
                     if self.starting_chips > self.small_blind_amount > 0:
                         break
                     print("Invalid number: try bigger than zero, smaller than starting chips")
@@ -151,13 +165,16 @@ def main():
                     continue
             while True:
                 try:
+                    # look if big blind is defined
                     self.big_blind_amount = int(self.setup["chips"][2])
+                    # look if the value big blind is between chips and small blind
                     if self.starting_chips > self.big_blind_amount > self.small_blind_amount:
                         break
                     print("Invalid number: try bigger than small blind, smaller than starting chips")
                 except ValueError:
                     print("Invalid response")
                     continue
+            #init the value of the class
             self.winner = None
             self.action_counter = 0
             self.attribute_list = ["d", "sb", "bb", "fa"]
@@ -171,17 +188,19 @@ def main():
             self.number_of_player_not_out = int(len(list(set(self.list_of_players))))
 
         def print_game_info(self):
+            #return the game info
             pass
 
         def print_round_info(self):
+            #print the round info
             print("\n")
             for player in self.list_of_players:
                 print("\n")
-                print(f"Name: {player.name}")
-                print(f"Cards: {player.cards}")
-                print(f"Player score: {player.score}")
-                print(f"Chips: {player.chips}")
-                print(f"Special Attributes: {player.list_of_special_attributes}")
+                print(f"Name: {player.name}")                                       #players name
+                print(f"Cards: {player.cards}")                                     #players cards
+                print(f"Player score: {player.score}")                              #players score
+                print(f"Chips: {player.chips}")                                     #players chips
+                print(f"Special Attributes: {player.list_of_special_attributes}")   #players special attributes
                 if player.fold:
                     print(f"Folded")
                 if player.all_in:
@@ -194,6 +213,7 @@ def main():
             print("\n")
 
         def establish_player_attributes(self):
+            #blind and dealer and first player assignements
             address_assignment = 0
             self.dealer = self.list_of_players_not_out[address_assignment]
             self.dealer.list_of_special_attributes.append("dealer")
@@ -212,14 +232,17 @@ def main():
             self.list_of_players_not_out.append(self.list_of_players_not_out.pop(0))
 
         def deal_hole(self):
+            #set player two as dealer
             for player in self.list_of_players_not_out:
                 self.deck.deal(player, 2)
 
         def deal_flop(self):
+            #burn the cards of dealer id he flop
             self.deck.burn()
             self.deck.deal(self, 3)
 
         def deal_turn(self):
+            # new turn
             self.deck.burn()
             print("\n--card burned--")
             self.deck.deal(self, 1)
@@ -232,6 +255,7 @@ def main():
             print(f"\n\nCommunity Cards: {self.cards}")
 
         def hand_scorer(self, player):
+            # score of hand per palyer and test the hand
             seven_cards = player.cards + self.cards
             all_hand_combos = list(itertools.combinations(seven_cards, 5))
             list_of_all_score_possibilities = []
@@ -255,6 +279,7 @@ def main():
                 pair_present = False
                 pair_value = int
                 value_counter = dict(Counter(value_list))
+                #test if the player have a pair
                 for value_name, count in value_counter.items():
                     if count == 2:
                         pair_present = True
@@ -293,6 +318,7 @@ def main():
                 three_of_a_kind_value = int
                 other_cards_not_special = []
                 three_of_a_kind_present = False
+                # test brelan
                 for value_name, count in value_counter.items():
                     if count == 3:
                         three_of_a_kind_present = True
@@ -329,10 +355,12 @@ def main():
                 four_of_a_kind_value = int
                 other_card_value = int
                 four_of_a_kind = False
+                #test carré
                 for value_name, count in value_counter.items():
                     if count == 4:
                         four_of_a_kind_value = value_name
                         four_of_a_kind: True
+                # test the greater value
                 for value in value_list:
                     if value != four_of_a_kind_value:
                         other_card_value = value
@@ -351,11 +379,11 @@ def main():
                 list_of_all_score_possibilities.append([score1, score2, score3, score4, score5, score6, score7, score8])
             best_score = max(list_of_all_score_possibilities)
             player.score = best_score
-
+        # look palyer can play at the next turn
         def score_all(self):
             for player in self.list_of_players_not_out:
                 self.hand_scorer(player)
-
+        #search the winner(s)
         def find_winners(self):
             if self.fold_out:
                 for player in list(set(self.winners)):
