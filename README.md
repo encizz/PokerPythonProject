@@ -18,7 +18,7 @@ Réaliser application permettant de simuler les bases d'un jeu de poker.
     - Il doit être possible de saisir un seed (graine), ce qui génèrera la même répartition des cartes.
 
 ## Règles du poker choisient
-Les règles du poker seront ignorées. Voici les règles prises en compte au sein de l'application.
+    Les règles du poker seront ignorées. Voici les règles prises en compte au sein de l'application.
 
 ![alt text](https://github.com/encizz/PokerPythonProject/blob/main/Image/image_for_readme.png)
 
@@ -34,17 +34,18 @@ Les règles du poker seront ignorées. Voici les règles prises en compte au sei
 ## Developpement
 
     - Pour installer le jeu, clonner ce repository dans une nouvelle branche locale :
- ![alt text](https://github.com/encizz/PokerPythonProject/blob/main/Image/git.jpg)
+    ![alt text](https://github.com/encizz/PokerPythonProject/blob/main/Image/git.jpg)
     - lancer le fichier "main"
     - C'est parti !
 
  ## Notes liées au travail du groupe   
-Les parties blocantes  :
+ 
+    Les parties blocantes  :
     - l'intégration des "seeds" dans un code déja existant
     - la création graphique via TK (installation du PIL, génération des images rattachées au cartes)
     - La fusion des versions de chacuns dans un même Git
 
-Montée en compétences :rocket:
+    Montée en compétences :rocket:
     - Intégrer une interface graphique avec Python (language imposé sur cet exercice)
     - Refactoriser un code existant et y ajouter une documentation afin d'en faciliter sa compréhension
     - Découverte d'un language, de sa synthaxe
