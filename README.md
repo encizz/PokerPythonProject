@@ -35,7 +35,7 @@ Réaliser application permettant de simuler les bases d'un jeu de poker.
 
     - Pour installer le jeu, clonner ce repository dans une nouvelle branche locale :
     ![alt text](https://github.com/encizz/PokerPythonProject/blob/main/Image/git.jpg)
-    - lancer le fichier "main"
+    - lancer le fichier "texas_holdem_poker.py"
     - C'est parti !
 
  ## Notes liées au travail du groupe   
