@@ -461,6 +461,7 @@ def main():
                 [print(player.name, player.chips) for player in self.list_of_players_not_out]
 
         def clear_board(self):
+            # clear the board of last game
             self.possible_responses.clear()
             self.cards.clear()
             self.deck = StandardDeck()
@@ -488,11 +489,13 @@ def main():
                 player.win = False
 
         def end_round(self):
+            # defined the list of player alive
             self.list_of_players_not_out = list(set(self.list_of_players_not_out))
             for player in self.list_of_players_not_out:
                 if player.chips <= 0:
                     self.list_of_players_not_out.remove(player)
                     print(f"{player.name} is out of the game!")
+            # liste le nombre de player alive
             self.number_of_player_not_out = len(set(self.list_of_players_not_out))
             if self.number_of_player_not_out == 1:
                 self.game_over = True
@@ -500,6 +503,7 @@ def main():
                 print(f"Game is over: {self.winner} wins with {self.winner.chips}!")
                 quit()
             new_round = str(ask_app("Start a new round? (yes/no)"))
+            # test if the player would to play a new round at the end the game
             if new_round == "yes":
                 print("\n\n\t\t\t\t--ROUND OVER--")
                 print("\n\n\t\t\t--STARTING NEW ROUND--\n")
@@ -511,9 +515,12 @@ def main():
             self.clear_board()
 
         def answer(self, player):
+            # define fuction for know the response of all players in a round
             player.stake_gap = self.highest_stake - player.stake
+            #test if the player can do an action
             if player.all_in or player.fold or self.fold_out:
                 return True
+            # test if the player can check
             if player.chips <= 0:
                 print(f"{player.name} is all in!")
                 player.all_in = True
@@ -521,20 +528,30 @@ def main():
             print(f"Put in at least {player.stake_gap} to stay in.\nDon't Have that much? You'll have to go all-in!")
             print(f"Chips available: {player.chips}")
             self.possible_responses.clear()
+            # test if player would to fold
             if player.stake_gap > 0:
                 self.possible_responses.append("fold")
+                # test if player would to all in exact
                 if player.stake_gap == player.chips:
                     self.possible_responses.append("all_in_exact")
+                # test if player would to all in partial
                 if player.stake_gap > player.chips:
                     self.possible_responses.append("all_in_partial")
                 if player.stake_gap < player.chips:
+                    # test if player would to call exact
                     self.possible_responses.append("call_exact")
+                    # test if player would to raise
                     self.possible_responses.append("call_and_raise")
+                    # test if player would to all in
                     self.possible_responses.append("call_and_all_in")
             if player.stake_gap == 0:
+                # test if player would to check
                 self.possible_responses.append("check")
+                # test if player would to raise
                 self.possible_responses.append("raise")
+                # test if player would to fold
                 self.possible_responses.append("fold")
+                # test if player would to all in
                 self.possible_responses.append("all_in")
             while True:
                 print(self.possible_responses)
