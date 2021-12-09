@@ -591,6 +591,7 @@ def main():
                                     player.win = True
                                 self.round_ended = True
                     return True
+                #if call exact update the pot and the minimum call
                 if response == "call_exact":
                     player.stake += player.stake_gap
                     self.pot += player.stake_gap
